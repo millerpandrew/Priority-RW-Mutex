@@ -1,7 +1,6 @@
 #ifndef PRIORITY_RW_MUTEX_H
 #define PRIORITY_RW_MUTEX_H
 
-#include <boost/thread/shared_mutex.hpp>
 #include <condition_variable>
 #include <mutex>
 #include <thread>
@@ -68,7 +67,6 @@ private:
         }
     }
 
-    boost::shared_mutex shared_mutex;
     std::mutex priority_mutex;
     std::condition_variable priority_cv;
     std::condition_variable low_priority_cv;
