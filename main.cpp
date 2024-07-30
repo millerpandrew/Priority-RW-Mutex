@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include "PriorityRWMutex.h"
+#include "priority_rw_mutex.h"
+#include <thread>
+#include <vector>
 
 
 void reader(priority_rw_mutex& prio_lock, int id) {
