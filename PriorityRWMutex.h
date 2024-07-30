@@ -58,9 +58,9 @@ public:
 
 private:
     void notify_next() {
-        if (pending_priority_writes > 0) {
+        if (pending_priority_writes) {
             priority_cv.notify_one();
-        } else if (pending_low_priority_writes > 0) {
+        } else if (pending_low_priority_writes) {
             low_priority_cv.notify_one();
         } else {
             read_cv.notify_all();
@@ -71,9 +71,9 @@ private:
     std::condition_variable priority_cv;
     std::condition_variable low_priority_cv;
     std::condition_variable read_cv;
-    int pending_priority_writes = 0;
-    int pending_low_priority_writes = 0;
-    int num_reading = 0;
+    size_t pending_priority_writes = 0;
+    size_t pending_low_priority_writes = 0;
+    size_t num_reading = 0;
     bool is_writing = false;
 };
 
