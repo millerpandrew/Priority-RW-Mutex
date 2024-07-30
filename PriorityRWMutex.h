@@ -1,3 +1,6 @@
+#ifndef PRIORITY_RW_MUTEX_H
+#define PRIORITY_RW_MUTEX_H
+
 #include <boost/thread/shared_mutex.hpp>
 #include <condition_variable>
 #include <mutex>
@@ -75,3 +78,5 @@ private:
     int num_reading = 0;
     bool is_writing = false;
 };
+
+#endif // PRIORITY_RW_MUTEX_H
